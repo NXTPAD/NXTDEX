@@ -15,6 +15,10 @@ NXT DEX is the swap interface for the NXT CLOUD ecosystem, designed to visually 
 - Connection flow does **not** request an arbitrary signature
 - Local quote simulation for prototype testing
 
+## Prototype completion status
+
+The front-end prototype is complete for testnet UI validation: token selection, quote simulation, settings, wallet detection, review, simulated confirmation, activity feedback, responsive layout, and network targeting are implemented.
+
 ## Current limitation
 
 This repository is still a **testnet prototype**. The live routing engine, liquidity pools, serialized on-chain swap transactions, RPC configuration, token lists, and production wallet transaction signing are not enabled yet.
