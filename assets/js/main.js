@@ -1,11 +1,11 @@
 (()=> {
 const rates={NXT:1.0123,USDC:1,SOL:153.42,ETH:4248.17,SUI:3.12};
 const tokens=[
- ['NXT','NXT','N','nxt-coin','Multi-chain'],
- ['USDC','USD Coin','$','usdc-coin','Multi-chain'],
- ['SOL','Solana','≋','sol-coin','Solana Devnet'],
- ['ETH','Ether','Ξ','eth-coin','Ethereum Sepolia'],
- ['SUI','Sui','S','sui-coin','Sui Testnet']
+ ['NXT','NXT','assets/img/nxt-cloud-logo.svg','Multi-chain'],
+ ['USDC','USD Coin','assets/img/coin-usdc.svg','Multi-chain'],
+ ['SOL','Solana','assets/img/coin-sol.svg','Solana Devnet'],
+ ['ETH','Ether','assets/img/coin-eth.svg','Ethereum Sepolia'],
+ ['SUI','Sui','assets/img/coin-sui.svg','Sui Testnet']
 ];
 let from='USDC',to='NXT',connected=false;
 let slippage=Number(localStorage.getItem('nxtdex_slippage')||0.5);
@@ -27,14 +27,14 @@ function render(){
  if($('rate'))$('rate').textContent='1 '+from+' = '+(rates[from]/rates[to]).toFixed(4)+' '+to;
  if($('minimum'))$('minimum').textContent=amount?minimum.toFixed(4)+' '+to:'—';
  if($('slippageDisplay'))$('slippageDisplay').textContent=slippage.toFixed(2)+'%  ⚙';
- const fi=$('fromToken')?.querySelector('i'),ti=$('toToken')?.querySelector('i');
- if(fi){fi.className=token(from)[3];fi.textContent=token(from)[2]}
- if(ti){ti.className=token(to)[3];ti.textContent=token(to)[2]}
+ const fi=$('fromToken')?.querySelector('img'),ti=$('toToken')?.querySelector('img');
+ if(fi){fi.src=token(from)[2];fi.alt=from}
+ if(ti){ti.src=token(to)[2];ti.alt=to}
 }
 function list(query=''){
  const q=query.toLowerCase();
- const matches=tokens.filter(t=>(t[0]+' '+t[1]+' '+t[4]).toLowerCase().includes(q));
- $('tokenList').innerHTML=matches.map(t=>'<button class="token-row" data-token="'+t[0]+'"><span class="token-main">'+icon(t[0])+'<span><b>'+t[0]+'</b><small>'+t[1]+' · '+t[4]+'</small></span></span><span>›</span></button>').join('')||'<p>No matching assets.</p>';
+ const matches=tokens.filter(t=>(t[0]+' '+t[1]+' '+t[3]).toLowerCase().includes(q));
+ $('tokenList').innerHTML=matches.map(t=>'<button class="token-row" data-token="'+t[0]+'"><span class="token-main">'+icon(t[0])+'<span><b>'+t[0]+'</b><small>'+t[1]+' · '+t[3]+'</small></span></span><span>›</span></button>').join('')||'<p>No matching assets.</p>';
  document.querySelectorAll('[data-token]').forEach(button=>button.addEventListener('click',()=>{
    const selected=button.dataset.token;
    if(side==='from'){if(selected===to)[from,to]=[to,from];else from=selected}
