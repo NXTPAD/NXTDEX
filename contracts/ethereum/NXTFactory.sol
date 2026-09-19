@@ -11,10 +11,12 @@ contract NXTPair {
     event LiquidityAdded(address indexed provider,uint256 amount0,uint256 amount1,uint256 liquidity);
     event LiquidityRemoved(address indexed provider,uint256 amount0,uint256 amount1,uint256 liquidity);
     event Swap(address indexed sender,address indexed tokenIn,uint256 amountIn,address tokenOut,uint256 amountOut);
+    event ProtocolConfigUpdated(address indexed feeRecipient,uint16 feeBps);
 
     modifier onlyFactory(){ require(msg.sender==factory,"factory"); _; }
     constructor(address a,address b,address treasury,uint16 fee){ token0=a; token1=b; factory=msg.sender; feeRecipient=treasury; feeBps=fee; }
     function setPaused(bool v) external onlyFactory { paused=v; }
+    function setProtocolConfig(address recipient,uint16 fee) external onlyFactory { require(recipient!=address(0) && fee<=1000,"config"); feeRecipient=recipient; feeBps=fee; emit ProtocolConfigUpdated(recipient,fee); }
 
     function addLiquidity(uint256 a0,uint256 a1,uint256 minL) external returns(uint256 l){
         require(!paused && a0>0 && a1>0,"invalid");
@@ -70,7 +72,15 @@ contract NXTFactory {
         (address x,address y)=a<b?(a,b):(b,a); require(getPair[x][y]==address(0),"exists");
         p=address(new NXTPair(x,y,treasury,feeBps));getPair[x][y]=p;getPair[y][x]=p;allPairs.push(p);emit PairCreated(x,y,p);
     }
-    function setTreasury(address t) external onlyOwner {require(t!=address(0),"treasury");treasury=t;}
-    function setFeeBps(uint16 f) external onlyOwner {require(f<=1000,"fee");feeBps=f;}
+    function setTreasury(address t) external onlyOwner {
+        require(t!=address(0),"treasury");
+        treasury=t;
+        for(uint256 i;i<allPairs.length;i++) NXTPair(allPairs[i]).setProtocolConfig(t,feeBps);
+    }
+    function setFeeBps(uint16 f) external onlyOwner {
+        require(f<=1000,"fee");
+        feeBps=f;
+        for(uint256 i;i<allPairs.length;i++) NXTPair(allPairs[i]).setProtocolConfig(treasury,f);
+    }
     function setPaused(bool v) external onlyOwner {paused=v;for(uint256 i;i<allPairs.length;i++)NXTPair(allPairs[i]).setPaused(v);}
 }
