@@ -1,0 +1,85 @@
+name: Create transparent NXT DEX logo
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-logo:
+    if: "!contains(github.event.head_commit.message, 'Create transparent NXT DEX logo')"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download master logo
+        run: |
+          curl -L --fail --retry 3 \
+            "https://raw.githubusercontent.com/NXTPAD/NXTPAD/main/assets/img/ChatGPT%20Image%20Sep%2019,%202026,%2003_49_14%20PM.png" \
+            -o /tmp/nxt-master.png
+
+      - name: Remove black background
+        run: |
+          python -m pip install --quiet pillow
+          python - <<'PY'
+          from PIL import Image
+          import numpy as np
+
+          src = "/tmp/nxt-master.png"
+          out = "assets/img/nxt-master-transparent.png"
+
+          im = Image.open(src).convert("RGBA")
+          a = np.array(im)
+          rgb = a[:, :, :3].astype(np.float32)
+          mx = rgb.max(axis=2)
+          mn = rgb.min(axis=2)
+          chroma = mx - mn
+
+          neutral = chroma < 12
+          alpha = np.full(mx.shape, 255, dtype=np.float32)
+          mask = neutral & (mx < 70)
+
+          t = (mx[mask] - 8) / 42
+          t = np.clip(t, 0, 1)
+          t = t * t * (3 - 2 * t)
+          alpha[mask] = 255 * t
+          alpha[neutral & (mx <= 8)] = 0
+          alpha = np.minimum(alpha, a[:, :, 3].astype(np.float32))
+
+          a[:, :, 3] = np.rint(alpha).astype(np.uint8)
+          Image.fromarray(a, "RGBA").save(out, optimize=True, compress_level=9)
+          PY
+
+      - name: Point NXT DEX at transparent logo
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          raw = "https://raw.githubusercontent.com/NXTPAD/NXTPAD/main/assets/img/ChatGPT%20Image%20Sep%2019,%202026,%2003_49_14%20PM.png"
+          local = "assets/img/nxt-master-transparent.png"
+
+          files = [
+              Path("index.html"),
+              Path("markets.html"),
+              Path("assets/js/main.js"),
+              Path("assets/js/markets.js"),
+          ]
+
+          for path in files:
+              if not path.exists():
+                  continue
+              text = path.read_text()
+              text = text.replace(raw, local)
+              text = text.replace("assets/img/nxt-cloud-logo.svg", local)
+              path.write_text(text)
+          PY
+
+      - name: Commit transparent logo
+        run: |
+          git config user.name "NXTPAD"
+          git config user.email "nxtpadsupport@gmail.com"
+          git add assets/img/nxt-master-transparent.png index.html markets.html assets/js/main.js assets/js/markets.js
+          git commit -m "Create transparent NXT DEX logo"
+          git push
