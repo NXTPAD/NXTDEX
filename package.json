@@ -1,0 +1,10 @@
+{
+  "name": "nxt-dex",
+  "private": true,
+  "version": "0.1.0",
+  "description": "NXT-owned multi-chain DEX protocol and frontend",
+  "scripts": {
+    "check": "node scripts/check-config.mjs",
+    "test": "node scripts/check-config.mjs"
+  }
+}
