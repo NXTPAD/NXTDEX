@@ -48,7 +48,7 @@ function walletList(){
   ['sol','Phantom / Solana',!!window.solana],
   ['eth','EVM Wallet',!!window.ethereum]
  ];
- $('walletList').innerHTML=wallets.map(w=>'<button class="wallet-row" data-wallet="'+w[0]+'"><span class="wallet-main"><span class="nxt-coin">N</span><span><b>'+w[1]+'</b><small>'+(w[2]?'Detected in browser':'Not detected')+'</small></span></span><span>'+(w[2]?'Connect':'—')+'</span></button>').join('');
+ $('walletList').innerHTML=wallets.map(w=>'<button class="wallet-row" data-wallet="'+w[0]+'"><span class="wallet-main"><img class="coin-icon" src="assets/img/'+(w[0]==='eth'?'coin-eth.svg':w[0]==='sol'?'coin-sol.svg':w[0]==='sui'?'coin-sui.svg':'nxt-cloud-logo.svg')+'" alt="'+w[1]+'"><span><b>'+w[1]+'</b><small>'+(w[2]?'Detected in browser':'Not detected')+'</small></span></span><span>'+(w[2]?'Connect':'—')+'</span></button>').join('');
  document.querySelectorAll('[data-wallet]').forEach(b=>b.addEventListener('click',()=>connect(b.dataset.wallet)));
 }
 async function connect(kind){
