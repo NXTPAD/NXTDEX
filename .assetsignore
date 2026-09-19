@@ -1,0 +1,13 @@
+# Server-side/build-only files — never publish as website assets
+node_modules
+**/node_modules
+.wrangler
+.git
+.git/**
+.env
+.env.*
+*.log
+
+# Project metadata/config that should not be public assets
+.gitignore
+.assetsignore
