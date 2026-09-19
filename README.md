@@ -37,3 +37,19 @@ The review flow intentionally stops before sending a transaction. This avoids th
 6. Add real pool and market data.
 7. Add security, slippage, deadline, and RPC error handling.
 8. Test independently with Sui Testnet, Solana Devnet, and Ethereum Sepolia before any mainnet deployment.
+
+
+## NXT protocol foundation
+
+The repository now contains the initial NXT-owned protocol configuration and Ethereum AMM foundation.
+
+- 60 bps / 0.60% protocol fee configuration
+- Separate deployment and treasury addresses for each testnet
+- Ethereum Sepolia factory/pair foundation
+- Chain-specific architecture documents for Solana Devnet and Sui Testnet
+- Limit-order architecture defined separately from the AMM
+- No private keys, seed phrases, or wallet exports are stored here
+
+### Deployment status
+
+**Do not deploy the current Solidity contracts to a public testnet yet.** The protocol still requires comprehensive unit/invariant/security testing, a finalized fee split, real test-token metadata, limit-order execution logic, and the Solana/Sui implementations before the NXT DEX protocol is considered deployable.
