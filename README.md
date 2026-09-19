@@ -53,3 +53,12 @@ The repository now contains the initial NXT-owned protocol configuration and Eth
 ### Deployment status
 
 **Do not deploy the current Solidity contracts to a public testnet yet.** The protocol still requires comprehensive unit/invariant/security testing, a finalized fee split, real test-token metadata, limit-order execution logic, and the Solana/Sui implementations before the NXT DEX protocol is considered deployable.
+
+
+## Current implementation status
+
+The repository now has prepare-only transaction adapters for Ethereum Sepolia, Solana Devnet, and Sui Testnet. These adapters deliberately require verified deployment metadata and do not invent program, package, factory, or pool addresses.
+
+The frontend remains in simulation mode until real testnet deployments, token metadata, live pool discovery, transaction simulation, and security testing are complete. See `docs/DEPLOYMENT_CHECKLIST.md`.
+
+No private keys or seed phrases belong in this repository or in chat.
