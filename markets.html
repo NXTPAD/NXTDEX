@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#020812"><title>NXT DEX | Markets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css"><link rel="stylesheet" href="assets/css/markets.css">
+</head>
+<body>
+<div class="bg-grid"></div><div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+<header class="topbar">
+<a class="brand" href="./"><img src="assets/img/nxt-cloud-logo.svg" alt="NXT Cloud logo"><span>NXT <b>DEX</b></span></a>
+<nav><a href="./">Swap</a><a href="./#pools">Pools</a><a class="active" href="markets.html">Markets</a><a href="./#orders">Limit Orders</a><a href="./#activity">Activity</a></nav>
+<div class="header-actions"><button class="network-btn" id="networkBtn"><span class="network-icon">Ξ</span><span id="networkLabel">Ethereum Sepolia</span><span class="chevron">⌄</span></button><button class="wallet-btn" id="connectBtn"><span>▣</span> Connect Wallet</button></div>
+</header>
+
+<main class="markets-page">
+<section class="markets-hero">
+<div><span class="eyebrow">NXT DEX / MARKET DISCOVERY</span><h1>Markets</h1><p>Search, filter, and compare assets across the NXT DEX ecosystem.</p></div>
+<div class="market-status"><span class="status-dot"></span> Testnet market data <small>Prototype</small></div>
+</section>
+
+<section class="market-toolbar">
+<div class="market-search"><span>⌕</span><input id="searchInput" placeholder="Search by token, symbol, or chain..." autocomplete="off"><kbd>/</kbd></div>
+<div class="quick-filters" id="quickFilters">
+<button class="active" data-preset="all">All</button><button data-preset="trending">Trending</button><button data-preset="gainers">Top Gainers</button><button data-preset="losers">Top Losers</button><button data-preset="new">New</button><button data-preset="volume">High Volume</button>
+</div>
+<button class="filter-toggle" id="filterToggle">☷ Filters <span id="filterCount">0</span></button>
+</section>
+
+<section class="filters-panel" id="filtersPanel">
+<div class="filter-grid">
+<label>Chain<select id="chainFilter"><option value="all">All chains</option><option>Ethereum</option><option>Solana</option><option>Sui</option></select></label>
+<label>Category<select id="categoryFilter"><option value="all">All categories</option><option>Layer 1</option><option>Stablecoin</option><option>DeFi</option><option>Infrastructure</option><option>Meme</option></select></label>
+<label>Market Cap<select id="capFilter"><option value="all">Any market cap</option><option value="micro">&lt; $10M</option><option value="small">$10M – $100M</option><option value="mid">$100M – $1B</option><option value="large">&gt; $1B</option></select></label>
+<label>24h Volume<select id="volumeFilter"><option value="all">Any volume</option><option value="small">&lt; $1M</option><option value="mid">$1M – $100M</option><option value="large">&gt; $100M</option></select></label>
+<label>Token Age<select id="ageFilter"><option value="all">Any age</option><option value="new">Under 7 days</option><option value="week">$7–30 days</option><option value="month">1–12 months</option><option value="old">Over 1 year</option></select></label>
+<label>24h Change<select id="changeFilter"><option value="all">Any change</option><option value="up10">+10% or more</option><option value="up5">+5% to +10%</option><option value="flat">-5% to +5%</option><option value="down5">-10% to -5%</option><option value="down10">Below -10%</option></select></label>
+</div>
+<div class="filter-actions"><button id="clearFilters" class="ghost-btn">Clear filters</button><span id="filterSummary">Showing all markets</span></div>
+</section>
+
+<section class="market-summary">
+<div><span>Tracked Assets</span><strong id="assetCount">0</strong></div>
+<div><span>Total Market Cap</span><strong>$2.86T</strong></div>
+<div><span>24h Volume</span><strong>$58.4B</strong></div>
+<div><span>Active Chains</span><strong>3</strong></div>
+</section>
+
+<section class="market-table-wrap">
+<div class="table-head"><div><span>MARKETS</span><small id="resultsLabel">0 assets</small></div><label>Sort by<select id="sortSelect"><option value="trending">Trending</option><option value="marketcap">Market Cap</option><option value="volume">Volume</option><option value="change">24h Change</option><option value="age">Age</option><option value="price">Price</option></select></label></div>
+<div class="market-table">
+<div class="market-row-header"><span>#</span><span>Asset</span><span>Price</span><span>24h</span><span>Market Cap</span><span>Volume (24h)</span><span>Liquidity</span><span>Age</span><span></span></div>
+<div id="marketRows"></div>
+</div>
+<div class="empty-market" id="emptyMarket" hidden><div>⌕</div><h3>No markets match those filters</h3><p>Try clearing a filter or searching for another asset.</p><button class="ghost-btn" id="emptyClear">Clear filters</button></div>
+</section>
+
+<section class="market-note"><div><span>◈</span><div><strong>Market discovery</strong><p>Use the filters to narrow assets by market conditions. Prices and market statistics will connect to verified market-data sources as the NXT DEX data layer is integrated.</p></div></div><a href="./">Return to Swap →</a></section>
+</main>
+
+<div class="toast" id="toast"></div>
+<script src="assets/js/markets.js"></script>
+</body></html>
