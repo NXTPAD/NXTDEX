@@ -62,3 +62,32 @@ The repository now has prepare-only transaction adapters for Ethereum Sepolia, S
 The frontend remains in simulation mode until real testnet deployments, token metadata, live pool discovery, transaction simulation, and security testing are complete. See `docs/DEPLOYMENT_CHECKLIST.md`.
 
 No private keys or seed phrases belong in this repository or in chat.
+
+
+## Live Markets data
+
+The Markets page now uses a Cloudflare Worker API layer instead of a hard-coded market array.
+
+- `/api/markets` proxies CoinGecko market data and keeps the API key server-side.
+- `/api/dex-search` searches DEX Screener for token/pair matches, including DEX token images and pair liquidity/volume/price data.
+- The browser applies search, chain, category, market-cap, volume, age, 24h-change, preset, and sorting filters to the returned dataset.
+- Token artwork comes from the token/market-data source. Chain artwork is not used as a token-image fallback.
+- Live market data refreshes automatically.
+
+### Cloudflare secret
+
+Create a free CoinGecko Demo API key, then add it to the Worker as a secret:
+
+```bash
+npx wrangler secret put COINGECKO_API_KEY
+```
+
+Paste the key when Wrangler prompts for it. **Never put the key in `markets.js`, HTML, GitHub, or a public environment variable.**
+
+Then redeploy:
+
+```bash
+npx wrangler deploy
+```
+
+The Worker is configured in `wrangler.jsonc`. Until the secret is configured, the Markets page intentionally falls back to the small prototype dataset and labels live data as unavailable.
