@@ -1,0 +1,35 @@
+{
+  "name": "NXT DEX",
+  "mode": "testnet",
+  "feeBps": 60,
+  "feePercent": "0.60",
+  "feeSplit": {
+    "status": "pending",
+    "lpBps": null,
+    "treasuryBps": null
+  },
+  "treasury": {
+    "ethereumSepolia": "0x00Ca91C5094B2bA93459b5471aa7e670C724C22b",
+    "solanaDevnet": "8oJPc2N9UbbkZmtJ4AdLE3ygaHHDwNHT9Lk1imtBUE5V",
+    "suiTestnet": "0x5a45f2ba33db551822dc042701c9f5b26c7960c987eb077f1aac100a6701a79c"
+  },
+  "deployment": {
+    "ethereumSepolia": "0x46f9ca0921Bf165DE5cB5B409DEF525293E3A4da",
+    "solanaDevnet": "F4w9pUDNfjHZ3qVN1LY9L31cDcv4cmZgE7bLPzTaNrzF",
+    "suiTestnet": "0xf8da30f46f8fb5175d26fad599d1f831a574f5e5ebc729163fcd59afc215e57a"
+  },
+  "networks": {
+    "ethereumSepolia": {
+      "chainId": 11155111,
+      "rpcEnv": "NXT_ETHEREUM_SEPOLIA_RPC_URL"
+    },
+    "solanaDevnet": {
+      "cluster": "devnet",
+      "rpcEnv": "NXT_SOLANA_DEVNET_RPC_URL"
+    },
+    "suiTestnet": {
+      "network": "testnet",
+      "rpcEnv": "NXT_SUI_TESTNET_RPC_URL"
+    }
+  }
+}
