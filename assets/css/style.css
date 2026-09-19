@@ -26,3 +26,7 @@ nav{display:flex;align-items:center;gap:48px;height:100%;flex:1}nav a{height:100
 .intro-brand{min-width:0;overflow:visible}.intro-brand img{width:78px;height:78px;object-fit:contain;object-position:center;overflow:visible;flex:0 0 78px}
 .footer-logo img{width:88px;height:82px;object-fit:contain;object-position:center;overflow:visible}
 @media(max-width:700px){.intro-brand img{width:68px;height:68px;flex-basis:68px}}
+
+
+/* Local coin artwork: use real asset images instead of text glyphs. */
+.coin-icon{width:28px;height:28px;display:inline-block;flex:0 0 28px;object-fit:contain;border-radius:50%;vertical-align:middle}.token-select .coin-icon{width:30px;height:30px;flex-basis:30px}.token-row .coin-icon{width:34px;height:34px;flex-basis:34px}.pair-coins .coin-icon{width:28px;height:28px;flex-basis:28px}.market-row>.coin-icon{width:30px;height:30px;flex-basis:30px}.wallet-main .coin-icon{width:30px;height:30px;flex-basis:30px}.token-main .coin-icon{width:34px;height:34px;flex-basis:34px}
