@@ -31,30 +31,30 @@
 <div class="panel-head"><h2>Your Assets</h2><button class="wallet-btn small-connect" id="assetConnect"><span>▣</span> Connect Wallet</button></div>
 <div class="divider"></div><div class="subhead"><b>Popular Pairs</b><a href="#markets">View All</a></div>
 <div class="pair-list">
-<div class="pair"><span class="pair-coins"><i class="nxt-coin">N</i><i class="usdc-coin">$</i></span><b>NXT / USDC</b><strong>$1.0123</strong><em>+4.32%</em></div>
-<div class="pair"><span class="pair-coins"><i class="sol-coin">≋</i><i class="usdc-coin">$</i></span><b>SOL / USDC</b><strong>$153.42</strong><em>+2.47%</em></div>
-<div class="pair"><span class="pair-coins"><i class="eth-coin">Ξ</i><i class="usdc-coin">$</i></span><b>ETH / USDC</b><strong>$4,248.17</strong><em>+1.96%</em></div>
-<div class="pair"><span class="pair-coins"><i class="sui-coin">S</i><i class="usdc-coin">$</i></span><b>SUI / USDC</b><strong>$3.12</strong><em>+3.21%</em></div>
+<div class="pair"><span class="pair-coins"><img class="coin-icon" src="assets/img/nxt-cloud-logo.svg" alt="NXT"><img class="coin-icon" src="assets/img/coin-usdc.svg" alt="USDC"></span><b>NXT / USDC</b><strong>$1.0123</strong><em>+4.32%</em></div>
+<div class="pair"><span class="pair-coins"><img class="coin-icon" src="assets/img/coin-sol.svg" alt="Solana"><img class="coin-icon" src="assets/img/coin-usdc.svg" alt="USDC"></span><b>SOL / USDC</b><strong>$153.42</strong><em>+2.47%</em></div>
+<div class="pair"><span class="pair-coins"><img class="coin-icon" src="assets/img/coin-eth.svg" alt="Ethereum"><img class="coin-icon" src="assets/img/coin-usdc.svg" alt="USDC"></span><b>ETH / USDC</b><strong>$4,248.17</strong><em>+1.96%</em></div>
+<div class="pair"><span class="pair-coins"><img class="coin-icon" src="assets/img/coin-sui.svg" alt="Sui"><img class="coin-icon" src="assets/img/coin-usdc.svg" alt="USDC"></span><b>SUI / USDC</b><strong>$3.12</strong><em>+3.21%</em></div>
 </div></div>
 </aside>
 <section class="swap-column">
 <div class="swap-panel">
 <div class="swap-tabs"><button class="tab active">Swap</button><button class="tab">Limit Order</button><button class="settings" id="settingsBtn">⚙</button></div>
 <div class="swap-body">
-<div class="token-box"><div class="token-label"><span>From</span><span>Balance: 1,250.00 &nbsp; <a id="maxBtn">Max</a></span></div><div class="token-input"><button class="token-select" id="fromToken"><i class="usdc-coin">$</i><span id="fromSymbol">USDC</span><b>⌄</b></button><input id="fromAmount" inputmode="decimal" value="100.00" placeholder="0.00"><small>= $100.00</small></div></div>
+<div class="token-box"><div class="token-label"><span>From</span><span>Balance: 1,250.00 &nbsp; <a id="maxBtn">Max</a></span></div><div class="token-input"><button class="token-select" id="fromToken"><img class="coin-icon" src="assets/img/coin-usdc.svg" alt="USDC"><span id="fromSymbol">USDC</span><b>⌄</b></button><input id="fromAmount" inputmode="decimal" value="100.00" placeholder="0.00"><small>= $100.00</small></div></div>
 <button class="swap-switch" id="switchBtn">↕</button>
-<div class="token-box"><div class="token-label"><span>To</span><span>Balance: 500.00</span></div><div class="token-input"><button class="token-select" id="toToken"><i class="nxt-coin">N</i><span id="toSymbol">NXT</span><b>⌄</b></button><input id="toAmount" value="98.72" placeholder="0.00" readonly><small>= $98.72</small></div></div>
+<div class="token-box"><div class="token-label"><span>To</span><span>Balance: 500.00</span></div><div class="token-input"><button class="token-select" id="toToken"><img class="coin-icon" src="assets/img/nxt-cloud-logo.svg" alt="NXT"><span id="toSymbol">NXT</span><b>⌄</b></button><input id="toAmount" value="98.72" placeholder="0.00" readonly><small>= $98.72</small></div></div>
 <div class="quote-lines"><div><span>◉ &nbsp;Price</span><b id="rate">1 USDC = 0.9872 NXT</b></div><div><span>◈ &nbsp;Slippage Tolerance</span><b id="slippageDisplay">0.50% &nbsp;⚙</b></div><div><span>◉ &nbsp;Minimum Received</span><b id="minimum">98.23 NXT</b></div></div>
 <button class="review-btn" id="swapBtn">Review Swap</button>
 </div></div>
 </section>
 <aside class="right-col">
 <div class="market-panel" id="markets"><div class="panel-head"><h2>Market Overview</h2><a href="#markets">View All</a></div>
-<div class="market-row"><i class="nxt-coin">N</i><span>NXT</span><b>$1.0123</b><em>+4.32%</em></div>
-<div class="market-row"><i class="usdc-coin">$</i><span>USDC</span><b>$1.0000</b><em>+0.01%</em></div>
-<div class="market-row"><i class="sol-coin">≋</i><span>SOL</span><b>$153.42</b><em>+2.47%</em></div>
-<div class="market-row"><i class="eth-coin">Ξ</i><span>ETH</span><b>$4,248.17</b><em>+1.96%</em></div>
-<div class="market-row"><i class="sui-coin">S</i><span>SUI</span><b>$3.12</b><em>+3.21%</em></div></div>
+<div class="market-row"><img class="coin-icon" src="assets/img/nxt-cloud-logo.svg" alt="NXT"><span>NXT</span><b>$1.0123</b><em>+4.32%</em></div>
+<div class="market-row"><img class="coin-icon" src="assets/img/coin-usdc.svg" alt="USDC"><span>USDC</span><b>$1.0000</b><em>+0.01%</em></div>
+<div class="market-row"><img class="coin-icon" src="assets/img/coin-sol.svg" alt="Solana"><span>SOL</span><b>$153.42</b><em>+2.47%</em></div>
+<div class="market-row"><img class="coin-icon" src="assets/img/coin-eth.svg" alt="Ethereum"><span>ETH</span><b>$4,248.17</b><em>+1.96%</em></div>
+<div class="market-row"><img class="coin-icon" src="assets/img/coin-sui.svg" alt="Sui"><span>SUI</span><b>$3.12</b><em>+3.21%</em></div></div>
 <div class="chart-panel"><div class="panel-head"><h2>Price Chart</h2><span>NXT / USDC　⌄　↗</span></div><div class="chart-price"><b>$1.0123</b><em>+4.32%</em></div>
 <svg class="chart" viewBox="0 0 500 175" preserveAspectRatio="none"><defs><linearGradient id="fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#009cff" stop-opacity=".38"/><stop offset="1" stop-color="#009cff" stop-opacity="0"/></linearGradient></defs><path d="M0 133 L18 147 L34 130 L49 136 L65 106 L81 119 L95 91 L112 105 L128 118 L143 108 L158 113 L174 99 L189 112 L207 81 L223 99 L239 83 L253 91 L268 72 L283 83 L299 64 L315 86 L330 72 L345 83 L360 61 L377 72 L392 48 L408 57 L424 37 L438 50 L452 31 L467 44 L484 21 L500 11 L500 175 L0 175Z" fill="url(#fill)"/><path d="M0 133 L18 147 L34 130 L49 136 L65 106 L81 119 L95 91 L112 105 L128 118 L143 108 L158 113 L174 99 L189 112 L207 81 L223 99 L239 83 L253 91 L268 72 L283 83 L299 64 L315 86 L330 72 L345 83 L360 61 L377 72 L392 48 L408 57 L424 37 L438 50 L452 31 L467 44 L484 21 L500 11" fill="none" stroke="#079fff" stroke-width="3"/></svg>
 <div class="ranges"><button class="selected">1D</button><button>1W</button><button>1M</button><button>3M</button><button>1Y</button></div></div>
