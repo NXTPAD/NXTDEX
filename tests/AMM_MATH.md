@@ -4,9 +4,9 @@ These are deterministic math cases for the constant-product quote formula.
 
 For fee f in basis points:
 
-netIn = amountIn * (10000 - f)
+feeAdjusted = amountIn * (10000 - f)
 
-amountOut = netIn * reserveOut / (reserveIn * 10000 + netIn)
+amountOut = feeAdjusted * reserveOut / (reserveIn * 10000 + feeAdjusted)
 
 ## Case 1
 
@@ -14,7 +14,7 @@ amountOut = netIn * reserveOut / (reserveIn * 10000 + netIn)
 - reserveIn: 1,000,000
 - reserveOut: 2,000,000
 - amountIn: 10,000
-- netIn: 9,940
+- fee-adjusted numerator: 99,400,000
 - expected amountOut: 19,683
 
 ## Case 2
@@ -23,7 +23,7 @@ amountOut = netIn * reserveOut / (reserveIn * 10000 + netIn)
 - reserveIn: 500,000
 - reserveOut: 500,000
 - amountIn: 50,000
-- netIn: 49,700
+- fee-adjusted numerator: 497,000,000
 - expected amountOut: 45,186
 
 ## Required invariants
