@@ -1,7 +1,7 @@
 (()=> {
 const rates={NXT:1.0123,USDC:1,SOL:153.42,ETH:4248.17,SUI:3.12};
 const tokens=[
- ['NXT','NXT','assets/img/nxt-cloud-logo.svg','Multi-chain'],
+ ['NXT','NXT','https://raw.githubusercontent.com/NXTPAD/NXTPAD/main/assets/img/ChatGPT%20Image%20Sep%2019,%202026,%2003_49_14%20PM.png','Multi-chain'],
  ['USDC','USD Coin','assets/img/coin-usdc.svg','Multi-chain'],
  ['SOL','Solana','assets/img/coin-sol.svg','Solana Devnet'],
  ['ETH','Ether','assets/img/coin-eth.svg','Ethereum Sepolia'],
