@@ -1,7 +1,7 @@
 (()=>{const $=id=>document.getElementById(id);let data=[],preset='all',searchTimer=null,lastDexSearch='';
 
 const fallback=[
-{sym:'NXT',name:'NXT',price:1.0123,change24h:4.32,marketCap:10123000,volume24h:1850000,liquidity:920000,ageDays:42,chain:'Multi-chain',category:'DeFi',trend:97,image:'assets/img/nxt-cloud-logo.svg',source:'nxt'},
+{sym:'NXT',name:'NXT',price:1.0123,change24h:4.32,marketCap:10123000,volume24h:1850000,liquidity:920000,ageDays:42,chain:'Multi-chain',category:'DeFi',trend:97,image:'assets/img/nxt-master-transparent.png',source:'nxt'},
 {sym:'USDC',name:'USD Coin',price:1,change24h:.01,marketCap:61500000000,volume24h:9200000000,liquidity:3100000000,ageDays:null,chain:'Ethereum',category:'Stablecoin',trend:72,image:'assets/img/coin-usdc.svg',source:'local'}
 ];
 

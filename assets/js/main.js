@@ -1,7 +1,7 @@
 (()=> {
 const rates={NXT:1.0123,USDC:1,SOL:153.42,ETH:4248.17,SUI:3.12};
 const tokens=[
- ['NXT','NXT','https://raw.githubusercontent.com/NXTPAD/NXTPAD/main/assets/img/ChatGPT%20Image%20Sep%2019,%202026,%2003_49_14%20PM.png','Multi-chain'],
+ ['NXT','NXT','assets/img/nxt-master-transparent.png','Multi-chain'],
  ['USDC','USD Coin','assets/img/coin-usdc.svg','Multi-chain'],
  ['SOL','Solana','assets/img/coin-sol.svg','Solana Devnet'],
  ['ETH','Ether','assets/img/coin-eth.svg','Ethereum Sepolia'],
@@ -48,7 +48,7 @@ function walletList(){
   ['sol','Phantom / Solana',!!window.solana],
   ['eth','EVM Wallet',!!window.ethereum]
  ];
- $('walletList').innerHTML=wallets.map(w=>'<button class="wallet-row" data-wallet="'+w[0]+'"><span class="wallet-main"><img class="coin-icon" src="assets/img/'+(w[0]==='eth'?'coin-eth.svg':w[0]==='sol'?'coin-sol.svg':w[0]==='sui'?'coin-sui.svg':'https://raw.githubusercontent.com/NXTPAD/NXTPAD/main/assets/img/ChatGPT%20Image%20Sep%2019,%202026,%2003_49_14%20PM.png')+'" alt="'+w[1]+'"><span><b>'+w[1]+'</b><small>'+(w[2]?'Detected in browser':'Not detected')+'</small></span></span><span>'+(w[2]?'Connect':'—')+'</span></button>').join('');
+ $('walletList').innerHTML=wallets.map(w=>'<button class="wallet-row" data-wallet="'+w[0]+'"><span class="wallet-main"><img class="coin-icon" src="assets/img/'+(w[0]==='eth'?'coin-eth.svg':w[0]==='sol'?'coin-sol.svg':w[0]==='sui'?'coin-sui.svg':'assets/img/nxt-master-transparent.png')+'" alt="'+w[1]+'"><span><b>'+w[1]+'</b><small>'+(w[2]?'Detected in browser':'Not detected')+'</small></span></span><span>'+(w[2]?'Connect':'—')+'</span></button>').join('');
  document.querySelectorAll('[data-wallet]').forEach(b=>b.addEventListener('click',()=>connect(b.dataset.wallet)));
 }
 async function connect(kind){
