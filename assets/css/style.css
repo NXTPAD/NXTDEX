@@ -26,3 +26,16 @@ nav{display:flex;align-items:center;gap:48px;height:100%;flex:1}nav a{height:100
 .intro-brand{min-width:0;overflow:visible}.intro-brand img{width:78px;height:78px;object-fit:contain;object-position:center;overflow:visible;flex:0 0 78px}
 .footer-logo img{width:88px;height:82px;object-fit:contain;object-position:center;overflow:visible}
 @media(max-width:700px){.intro-brand img{width:68px;height:68px;flex-basis:68px}}
+
+
+/* Unified NXT cloud logo + animated orbital rings */
+.brand,.intro-brand{position:relative;overflow:visible!important;isolation:isolate}
+.brand::before,.brand::after,.intro-brand::before,.intro-brand::after{content:"";position:absolute;left:50%;top:50%;border:1px solid rgba(20,157,255,.7);border-radius:50%;pointer-events:none;z-index:0;transform-origin:center;box-shadow:0 0 10px rgba(0,157,255,.35)}
+.brand::before{width:82px;height:30px;transform:translate(-50%,-50%) rotate(-18deg);animation:nxtOrbitSpin 7s linear infinite}
+.brand::after{width:72px;height:25px;transform:translate(-50%,-50%) rotate(24deg);animation:nxtOrbitSpinReverse 9s linear infinite}
+.intro-brand::before{width:155px;height:58px;transform:translate(-50%,-50%) rotate(-18deg);animation:nxtOrbitSpin 8s linear infinite}
+.intro-brand::after{width:140px;height:48px;transform:translate(-50%,-50%) rotate(24deg);animation:nxtOrbitSpinReverse 11s linear infinite}
+.brand img,.brand span,.intro-brand img,.intro-brand span{position:relative;z-index:2}
+@keyframes nxtOrbitSpin{to{transform:translate(-50%,-50%) rotate(342deg)}}
+@keyframes nxtOrbitSpinReverse{to{transform:translate(-50%,-50%) rotate(-336deg)}}
+@media(prefers-reduced-motion:reduce){.brand::before,.brand::after,.intro-brand::before,.intro-brand::after{animation:none}}
